@@ -17,7 +17,7 @@
           "pub"
         ],
         [
-          "magebirdpopup.php",
+          "mageroot/*",
           "/"
         ],  
       
