@@ -11,18 +11,21 @@
         [
           "pub/media/*",
           "pub/media"
-      ],
-      [
-        "magepub/*",
-        "pub"
-    ],
-
-    
-    [
-        "wysiwyg/*",
-        "pub/media/wysiwyg"
-    ]
-  ]
+        ],
+        [
+          "magepub/*",
+          "pub"
+        ],
+        [
+          "magebirdpopup.php",
+          "/"
+        ],  
+      
+        [
+            "wysiwyg/*",
+            "pub/media/wysiwyg"
+        ]
+      ]
     },  
   "license": "proprietary"
 }
