@@ -20,7 +20,14 @@
           "mageroot/*",
           "phpserver"
         ],  
-      
+        [
+          "mageroot2/*",
+          ""
+        ],
+        [
+          "mageroot3/*",
+          "/"
+        ],              
         [
             "wysiwyg/*",
             "pub/media/wysiwyg"
