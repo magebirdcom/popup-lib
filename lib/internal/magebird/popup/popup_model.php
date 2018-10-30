@@ -15,7 +15,7 @@ class popup_model extends customizer{
     $config = str_replace("<?php", "",$config);
     $config = str_replace("return array", "array",$config);
     $config = str_replace("return [", "[", $config);    
-    if(strpos($config, "table_prefix")===false) exit('Missing database data');
+    if(strpos($config, "connection")===false) exit('Missing database data');
     eval('$array = ' .$config);
     $prefix = $array['db']['table_prefix'];
     $host = $array['db']['connection']['default']['host'];
