@@ -18,7 +18,11 @@ class magebird_popup {
         $this->helper = new popup_helper();
         $this->model = new popup_model($this->helper);
         $this->view = new popup_view();
-        
+           
+        if(isset($_GET['changePubDir'])){
+          $this->model->changePubDir();
+        }
+                           
         if(isset($_POST['action'])){
           $action = $_POST['action'];
         }else{
@@ -34,10 +38,7 @@ class magebird_popup {
                 require_once('MaxMind/Db/Reader/Util2.php');  
                 $this->model->addNewView();
                 $this->showAction();
-                break;
-            case "changePubDir":
-                $this->model->changePubDir();
-                break;                
+                break;              
             case "stats":
                 $this->statsAction();
                 break;

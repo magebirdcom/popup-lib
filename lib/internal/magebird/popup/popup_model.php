@@ -9,15 +9,18 @@ class popup_model extends customizer{
 	public function __construct($helper){
 		$this->sessionId = isset($_COOKIE["PHPSESSID"]) ? $_COOKIE["PHPSESSID"] : '';
     
-		$file           = realpath(__DIR__) . '/../../../../app/etc/env.php';
-		$file = str_replace("/pub/app/etc/env", "/app/etc/env",$file);
-		$config         = file_get_contents($file);
+		$file   = realpath(__DIR__) . '/../../../../app/etc/env.php';
+		$file   = str_replace("/pub/app/etc/env", "/app/etc/env",$file);
+		$config = file_get_contents($file);
     $config = str_replace("<?php", "",$config);
     $config = str_replace("return array", "array",$config);
     $config = str_replace("return [", "[", $config);    
     if(strpos($config, "connection")===false) exit('Missing database data');
     eval('$array = ' .$config);
-    $prefix = $array['db']['table_prefix'];
+    $prefix = '';
+    if(isset($array['db']['table_prefix'])){
+      $prefix = $array['db']['table_prefix'];
+    }    
     $host = $array['db']['connection']['default']['host'];
     $password = $array['db']['connection']['default']['password'];
     $username = $array['db']['connection']['default']['username'];
