@@ -4,18 +4,20 @@ class Dotmailer
 {
     var $apiEmail;
     var $password;
-
-    public function __construct($apiEmail,$password)
+    var $apiEndpoint;
+    
+    public function __construct($apiEmail,$password,$apiEndpoint)
     {
         $this->apiEmail = $apiEmail;
         $this->password = $password;
+        $this->apiEndpoint = $apiEndpoint;
     }
 
     public function subscribe($addressId,$data)
     {                          
       //encode the data as json string
       $requestBody = json_encode($data);  
-      $url = 'https://apiconnector.com/v2/address-books/'.intval($addressId).'/contacts';
+      $url = $this->apiEndpoint.'/v2/address-books/'.intval($addressId).'/contacts';
       //initialise curl session
       $ch = curl_init();
   
