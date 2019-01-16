@@ -224,7 +224,7 @@ class popup_view{
 			$attrs = explode('{{productAttribute="',$content);
 		}    
 		unset($attrs[0]); 
-		if(count($attrs>0)){     
+		if(count($attrs)>0){     
 			if(!$product) return $content;   
             
 			foreach($attrs as $attr){
