@@ -590,8 +590,7 @@ class popup_model extends customizer{
 		$statement->execute($binds);  
 	}
   
-  public function changePubDir(){
-      
+  public function changePubDir(){ 
 		$sql = "INSERT IGNORE INTO `".$this->getTable('core_config_data')."`
             (path,value) VALUES ('magebird_popup/general/pub_dir','')";        
 		$this->pdo->query($sql);

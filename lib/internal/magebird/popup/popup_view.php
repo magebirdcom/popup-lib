@@ -29,8 +29,8 @@ class popup_view{
 			}else{
 				$content = "<img src='".$imgSrc."' />";       
 			}              
-		}else{
-			$content = $popup['parsed_content'];
+		}else{    
+			$content = str_replace(array("SID=","sid=","PHPSESSID="), "", $popup['parsed_content']);
 			$content = $this->parseProdAttr($content,$currentProduct);        
 			$content = $this->parseProdAttr($content,$cartProduct,true);  
 		}           

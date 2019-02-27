@@ -108,8 +108,12 @@ class popup_helper{
         $ipaddress = $_SERVER["HTTP_CF_CONNECTING_IP"];
     }elseif(isset($_SERVER['HTTP_CLIENT_IP'])){
         $ipaddress = $_SERVER['HTTP_CLIENT_IP'];
-    }elseif(isset($_SERVER['HTTP_X_FORWARDED_FOR'])){
+    }elseif(isset($_SERVER['HTTP_X_FORWARDED_FOR'])){   
         $ipaddress = $_SERVER['HTTP_X_FORWARDED_FOR'];
+        if(strpos($ipaddress, ",")!=-1){
+          $IParray=array_values(array_filter(explode(',',$ipaddress)));
+          $ipaddress = $IParray[0];
+        }         
     }elseif(isset($_SERVER['HTTP_X_FORWARDED'])){
         $ipaddress = $_SERVER['HTTP_X_FORWARDED'];
     }elseif(isset($_SERVER['HTTP_FORWARDED_FOR'])){
@@ -122,6 +126,6 @@ class popup_helper{
         $ipaddress = '';
     }       
     return $ipaddress;
-  }   
+  }  
       
 }
